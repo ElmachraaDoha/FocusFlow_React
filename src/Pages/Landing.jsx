@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import study3 from "../assets/study3.jfif";
-import studyAnimation from "../assets/studyAnimation.gif";
+import nature from "../assets/nature.mp4";
 
 
 export default function Landing() {
@@ -55,11 +55,12 @@ export default function Landing() {
 
       <div style={styles.videoContainer}>
 
-      <img
-        style={styles.video}
-        src={studyAnimation}
-        alt="Study Animation"
-      />
+        <video  style={styles.video}
+                src={nature}
+                autoPlay
+                loop
+                muted
+                playsInline/>
 
       </div>
 

@@ -14,7 +14,8 @@ import Login from "../Pages/Login.jsx";
 import Dashboard from "../Pages/Dashboard.jsx";
 import Tasks from "../Pages/Tasks.jsx";
 import Pomodoro from "../Pages/Pomodoro.jsx";
-import Analytics from "../Pages/Analytics.jsx";
+import StudyRoom from "../Pages/StudyRoom.jsx";
+
 
 
 //routing
@@ -42,7 +43,7 @@ const router =  createBrowserRouter([
       { path: "dashboard", element: <Dashboard /> },
       {path:"tasks" ,element:<Tasks/>},
       {path:"pomodoro" ,element:<Pomodoro/>},
-      {path:"analytics",element:<Analytics/> },
+      {path:"studyroom",element:<StudyRoom/> },
 
     ]
 

@@ -1,60 +1,61 @@
+import { database } from "../data/database";
+import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
 
-
-
 export default function Dashboard() {
- return (
 
- <div className="dashboard">
+  const navigate = useNavigate();
 
- <main className="main">
- 
- <header className="topbar">
- <h2>Dashboard</h2>
- </header>
+  const currentUserId = localStorage.getItem("CurrentUserId") || "u1";
+  const currentUser = database.users.find(u => u.id === currentUserId);
 
- <div className="grid">
+  const today = new Date().toISOString().split("T")[0];
+  const todayMinutes = currentUser.studySessions
+    .filter(s => s.date === today)
+    .reduce((sum, s) => sum + s.durationMinutes, 0);
 
- <div className="card timer">
- <h3>Focus Session</h3>
+  const upcomingTasks = currentUser.tasks.filter(t => t.status !== "done").slice(0, 3);
 
-<div className="circle">
- 24:57
- </div>
+  const recentSessions = currentUser.studySessions.slice(-2).reverse();
 
-<button>Pause</button>
-<button>Reset</button>
- </div>
+  const getSubjectName = (id) => currentUser.subjects.find(s => s.id === id)?.name || "General";
 
-{/* Overview */}
- <div className="card">
- <h3>Today Overview</h3>
- <p> 1h 20m</p>
-<p> 3 tasks done</p>
- <p>2 focus sessions</p>
-</div>
+  return (
+    <div className="dashboard">
+      <main className="main">
+        <header className="topbar"><h2>Welcome Back {currentUser.name}</h2></header>
+        <div className="grid">
 
-{/* Tasks */}
-<div className="card">
- <h3>Upcoming Tasks</h3>
- <ul>
-<li>Finish OS assignment</li>
- <li>Watch React tutorial</li>
- <li>Lab report</li>
- </ul>
- </div>
+          <div className="card timer">
+            <h3>Focus Session</h3>
+            <div className="circle"></div>
+            <button className="timer-btn" onClick={() => navigate("/app/pomodoro")}>Open Timer</button>
+          </div>
 
- {/* Sessions */}
-<div className="card">
- <h3>Recent Sessions</h3>
- <p> gtk - 25 min</p>
- <p> web - 25 min</p>
- </div>
+          <div className="card">
+            <h3>Today Overview</h3>
+            <p> {todayMinutes}m</p>
+            <p> {currentUser.tasks.filter(t => t.status === "done").length} tasks done</p>
+            <p> {currentUser.studySessions.filter(s => s.date === today).length} focus sessions</p>
+          </div>
 
- </div>
+          <div className="card">
+            <h3>Upcoming Tasks</h3>
+            <ul>
+              {upcomingTasks.map(task => <li key={task.id}>{task.title}</li>)}
+            </ul>
+          </div>
 
- </main>
- </div>
- );
+          <div className="card">
+            <h3>Recent Sessions</h3>
+            {recentSessions.map(sess => (
+              <p key={sess.id}>{getSubjectName(sess.subjectId)} - {sess.durationMinutes} min</p>
+            ))}
+          </div>
+
+        </div>
+      </main>
+    </div>
+  );
 }
 

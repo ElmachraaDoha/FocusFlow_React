@@ -1,110 +1,125 @@
 import { useState } from "react";
-import "./Tasks.css";
 import { database } from "../data/database";
+import "./Tasks.css";
 
 function Tasks() {
-  
   const currentUserId = localStorage.getItem("CurrentUserId") || "u1";
   const currentUser = database.users.find(u => u.id === currentUserId);
 
-  
   const [tasks, setTasks] = useState(currentUser?.tasks || []);
-  const [subjects] = useState(currentUser?.subjects || []);
+  const [newTaskDescription, setNewTaskDescription] = useState("");
   const [showModal, setShowModal] = useState(false);
-  
-  
-  const [filterSubject, setFilterSubject] = useState("All");
+
   const [filterPriority, setFilterPriority] = useState("All");
   const [filterStatus, setFilterStatus] = useState("All");
 
-  
   const [newTaskTitle, setNewTaskTitle] = useState("");
-  const [selectedSubjectName, setSelectedSubjectName] = useState(subjects[0]?.name || "General");
   const [selectedPriority, setSelectedPriority] = useState("High");
 
- 
+  // FILTERED TASKS 
   const filteredTasks = tasks.filter((task) => {
-    const matchSubject = filterSubject === "All" || task.subjectId === subjects.find(s => s.name === filterSubject)?.id || (filterSubject === "General" && task.subjectId === "general");
-    const matchPriority = filterPriority === "All" || task.priority === filterPriority;
-    const matchStatus = filterStatus === "All" || task.status === filterStatus;
-    return matchSubject && matchPriority && matchStatus;
+    const matchPriority =
+      filterPriority === "All" || task.priority === filterPriority;
+
+    const matchStatus =
+      filterStatus === "All" || task.status === filterStatus;
+
+    return matchPriority && matchStatus;
   });
 
- 
+  // TASK STATUS
   const toggleTask = (id) => {
-    setTasks(tasks.map((task) =>
-      task.id === id ? { ...task, status: task.status === "done" ? "todo" : "done" } : task
+    setTasks(tasks.map(task =>
+      task.id === id
+        ? { ...task, status: task.status === "done" ? "todo" : "done" }
+        : task
     ));
   };
 
+  // ADD TASK 
   const handleAddTask = (e) => {
     e.preventDefault();
-    const targetSubject = subjects.find(s => s.name === selectedSubjectName);
+
     const newTask = {
       id: `t${Date.now()}`,
-      subjectId: targetSubject ? targetSubject.id : "general",
       title: newTaskTitle,
+      description: newTaskDescription,
       status: "todo",
       priority: selectedPriority
     };
+
     setTasks([...tasks, newTask]);
+
     setShowModal(false);
     setNewTaskTitle("");
+    setNewTaskDescription("");
+    setSelectedPriority("High");
+
   };
 
   return (
     <div className="tasks-page">
       <div className="tasks-container">
+
+        {/* HEADER */}
         <div className="tasks-header">
           <h2>Tasks</h2>
-          <button className="add-task-btn" onClick={() => setShowModal(true)}>+ Add Task</button>
+          <button
+            className="add-task-btn"
+            onClick={() => setShowModal(true)}
+          >
+            + Add Task
+          </button>
         </div>
 
-        {/* les filtres */}
+        {/* FILTERS */}
         <div className="filters">
-          <select value={filterSubject} onChange={(e) => setFilterSubject(e.target.value)}>
-            <option value="All">All Subjects</option>
-            {subjects.map((subj) => (
-              <option key={subj.id} value={subj.name}>{subj.name}</option>
-            ))}
-            <option value="General">General</option>
-          </select>
 
-          <select value={filterPriority} onChange={(e) => setFilterPriority(e.target.value)}>
+          <select
+            value={filterPriority}
+            onChange={(e) => setFilterPriority(e.target.value)}
+          >
             <option value="All">All Priority</option>
             <option value="High">High</option>
             <option value="Medium">Medium</option>
             <option value="Low">Low</option>
           </select>
 
-          <select value={filterStatus} onChange={(e) => setFilterStatus(e.target.value)}>
+          <select
+            value={filterStatus}
+            onChange={(e) => setFilterStatus(e.target.value)}
+          >
             <option value="All">All Status</option>
             <option value="done">Done</option>
             <option value="todo">Todo</option>
           </select>
+
         </div>
 
-        {/*la liste des taches*/}
+        {/* TASK LIST */}
         <div className="tasks-list">
           {filteredTasks.length > 0 ? (
             filteredTasks.map((task) => {
               const isDone = task.status === "done";
-              const taskSubject = subjects.find(s => s.id === task.subjectId);
-              const subjectName = taskSubject ? taskSubject.name : "General";
 
               return (
                 <div className="task-item" key={task.id}>
                   <div className="task-left">
+
                     <input
                       type="checkbox"
                       checked={isDone}
                       onChange={() => toggleTask(task.id)}
                     />
+
                     <div>
-                      <h4 className={isDone ? "completed" : ""}>{task.title}</h4>
-                      <p className="subject-name">{subjectName}</p>
+                      <h4 className={isDone ? "completed" : ""}>
+                        {task.title}
+                      </h4>
                     </div>
+
                   </div>
+
                   <span className={`priority ${task.priority.toLowerCase()}`}>
                     {task.priority}
                   </span>
@@ -112,17 +127,23 @@ function Tasks() {
               );
             })
           ) : (
-            <p className="no-tasks">No tasks found with these filters.</p>
+            <p className="no-tasks">
+              No tasks found with these filters.
+            </p>
           )}
         </div>
+
       </div>
 
-      {/* fenetre POPUP */}
+      {/* MODAL */}
       {showModal && (
         <div className="modal-overlay">
           <div className="modal-content">
+
             <h3>Add New Task</h3>
+
             <form onSubmit={handleAddTask}>
+
               <div className="form-group">
                 <label>Task Name</label>
                 <input
@@ -133,30 +154,47 @@ function Tasks() {
                 />
               </div>
               <div className="form-group">
-                <label>Subject</label>
-                <select value={selectedSubjectName} onChange={(e) => setSelectedSubjectName(e.target.value)}>
-                  {subjects.map((subj) => (
-                    <option key={subj.id} value={subj.name}>{subj.name}</option>
-                  ))}
-                  <option value="General">General</option>
-                </select>
+                <label>Description</label>
+                <textarea
+                  value={newTaskDescription}
+                  onChange={(e) => setNewTaskDescription(e.target.value)}
+                  placeholder="Add task details..."
+                  required
+                />
               </div>
+
               <div className="form-group">
                 <label>Priority</label>
-                <select value={selectedPriority} onChange={(e) => setSelectedPriority(e.target.value)}>
+                <select
+                  value={selectedPriority}
+                  onChange={(e) => setSelectedPriority(e.target.value)}
+                >
                   <option value="High">High</option>
                   <option value="Medium">Medium</option>
                   <option value="Low">Low</option>
                 </select>
               </div>
+
               <div className="modal-actions">
-                <button type="button" onClick={() => setShowModal(false)} className="cancel-btn">Cancel</button>
-                <button type="submit" className="submit-btn">Create Task</button>
+                <button
+                  type="button"
+                  onClick={() => setShowModal(false)}
+                  className="cancel-btn"
+                >
+                  Cancel
+                </button>
+
+                <button type="submit" className="submit-btn">
+                  Create Task
+                </button>
               </div>
+
             </form>
+
           </div>
         </div>
       )}
+
     </div>
   );
 }

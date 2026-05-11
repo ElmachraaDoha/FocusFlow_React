@@ -58,7 +58,7 @@ export const database = {
       ],
       tasks: [
         { id: "t9", subjectId: "s10", title: "Resoudre TP 1", status: "todo", priority: "High" },
-        { id: "t10", subjectId: "s9", title: "Reviser pour l'exam", status: "done", priority: "HIGH" },
+        { id: "t10", subjectId: "s9", title: "Reviser pour l'exam", status: "done", priority: "High" },
         { id: "t11", subjectId: "s8", title: "Preparer le rapport de projet", status: "focus", priority: "Medium" }
       ],
       studySessions: [
@@ -68,3 +68,8 @@ export const database = {
     }
   ]
 };
+
+export function getCurrentUser() {
+  const id = localStorage.getItem("CurrentUserId") || "u1";
+  return database.users.find(u => u.id === id);
+}

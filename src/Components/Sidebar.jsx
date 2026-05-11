@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { LayoutDashboard, List, Timer, BarChart3} from "lucide-react";
+import { LayoutDashboard, List, Timer, TvMinimal} from "lucide-react";
 import FocusFlow from "../assets/FocusFlow.jpg";
 import "./Sidebar.css";
 
@@ -32,9 +32,9 @@ export default function Sidebar() {
           Pomodoro
         </Link>
 
-        <Link to="/app/analytics" className={location.pathname === "/app/analytics" ? "active" : ""}>
-          <BarChart3 size={18} />
-          Analytics
+        <Link to="/app/studyroom" className={location.pathname === "/app/studyroom" ? "active" : ""}>
+          <TvMinimal size={18} />
+          StudyRoom
         </Link>
 
       </nav>

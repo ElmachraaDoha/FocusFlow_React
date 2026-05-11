@@ -1,7 +1,15 @@
 import { Link } from "react-router-dom";
-import { LayoutDashboard, List, Timer, BarChart3} from "lucide-react";
+import {
+  LayoutDashboard,
+  List,
+  Timer,
+  TvMinimal,
+  CheckCircle2,
+} from "lucide-react";
+
 
 export default function Features() {
+
   const handleHover = (e) => {
     e.currentTarget.style.transform = "translateY(-10px)";
     e.currentTarget.style.boxShadow = "0 25px 50px rgba(0,0,0,0.10)";
@@ -14,9 +22,12 @@ export default function Features() {
     e.currentTarget.style.borderColor = "#e5e7eb";
   };
 
+
   return (
     <div style={styles.page}>
 
+
+      {/* HERO */}
       <div style={styles.hero}>
 
         <h1 style={styles.title}>
@@ -24,69 +35,229 @@ export default function Features() {
         </h1>
 
         <p style={styles.subtitle}>
-          FocusFlow combines structure, simplicity, and performance tools to help you
-          build better study habits and stay consistent.
+          FocusFlow is designed to help students stay organized,
+          focused, and productive without feeling overwhelmed.
+          Everything works together inside one clean and modern workspace.
         </p>
+
       </div>
 
+      {/* INTRO */}
+      <div style={styles.introBox}>
+
+        <p style={styles.introText}>
+          Whether you are preparing for exams, managing assignments,
+          building better habits, or trying to stay consistent with your goals,
+          FocusFlow gives you the tools to create structure and improve
+          your daily workflow.
+        </p>
+
+        <p style={styles.introText}>
+          Our platform combines simplicity, performance,
+          and productivity features to help students focus on what truly matters:
+          learning effectively and making real progress.
+        </p>
+
+      </div>
+
+      {/* FEATURES */}
       <div style={styles.grid}>
 
-        <div style={styles.card} onMouseEnter={handleHover} onMouseLeave={handleLeave}>
-          <div style={styles.icon}><LayoutDashboard size={18} /></div>
-          <h2 style={styles.cardTitle}>Smart Dashboard</h2>
-          <p style={styles.cardText}>
-            Track tasks, sessions, and progress in one clean overview.
+          {/* DASHBOARD */}
+          <div
+            style={styles.card}
+            onMouseEnter={handleHover}
+            onMouseLeave={handleLeave}
+          >
+
+            <div style={styles.icon}>
+              <LayoutDashboard size={20} />
+            </div>
+
+            <h2 style={styles.cardTitle}>
+              Smart Dashboard
+            </h2>
+
+            <p style={styles.cardText}>
+              The dashboard acts as the center of your productivity system,
+              helping students clearly organize tasks, focus sessions,
+              and study goals in one place.
+            </p>
+
+            <ul style={styles.list}>
+              <li>View daily and weekly goals</li>
+              <li>Track completed tasks</li>
+              <li>Monitor productivity progress</li>
+              <li>Access focus sessions quickly</li>
+              <li>Build better study routines</li>
+            </ul>
+
+          </div>
+
+          {/* TASKS */}
+          <div
+            style={styles.card}
+            onMouseEnter={handleHover}
+            onMouseLeave={handleLeave}
+          >
+
+            <div style={styles.icon}>
+              <List size={20} />
+            </div>
+
+            <h2 style={styles.cardTitle}>
+              Task Management System
+            </h2>
+
+            <p style={styles.cardText}>
+              Organize assignments, break large goals into smaller steps,
+              and create a simple workflow that keeps studying manageable
+              and motivating.
+            </p>
+
+            <ul style={styles.list}>
+              <li>Create study tasks easily</li>
+              <li>Organize by priority</li>
+              <li>Track progress clearly</li>
+              <li>Build personalized study plans</li>
+              <li>Stay consistent daily</li>
+            </ul>
+
+          </div>
+
+          {/* POMODORO */}
+          <div
+            style={styles.card}
+            onMouseEnter={handleHover}
+            onMouseLeave={handleLeave}
+          >
+
+            <div style={styles.icon}>
+              <Timer size={20} />
+            </div>
+
+            <h2 style={styles.cardTitle}>
+              Pomodoro Focus Sessions
+            </h2>
+
+            <p style={styles.cardText}>
+              Improve concentration using structured focus and break cycles
+              designed to reduce burnout and increase productivity.
+            </p>
+
+            <ul style={styles.list}>
+              <li>Stay focused longer</li>
+              <li>Reduce procrastination</li>
+              <li>Improve time awareness</li>
+              <li>Prevent mental exhaustion</li>
+              <li>Create healthier study routines</li>
+            </ul>
+
+          </div>
+
+          {/* STUDY ROOM */}
+          <div
+            style={styles.card}
+            onMouseEnter={handleHover}
+            onMouseLeave={handleLeave}
+          >
+
+            <div style={styles.icon}>
+              <TvMinimal size={20} />
+            </div>
+
+            <h2 style={styles.cardTitle}>
+              Calm Study Rooms
+            </h2>
+
+            <p style={styles.cardText}>
+              Enter relaxing virtual study spaces designed to help students
+              focus better through calm environments, peaceful sounds,
+              and guided study sessions.
+            </p>
+
+            <ul style={styles.list}>
+              <li>Watch calm study session videos</li>
+              <li>Study with relaxing background music</li>
+              <li>Improve concentration naturally</li>
+              <li>Create a peaceful learning atmosphere</li>
+              <li>Stay motivated during long sessions</li>
+            </ul>
+
+          </div>
+
+        {/* WHY SECTION */}
+        <div style={styles.whySection}>
+
+          <h2 style={styles.whyTitle}>
+            Built for Students Who Want Results
+          </h2>
+
+          <p style={styles.whyText}>
+            FocusFlow is more than just a productivity app.
+            It is a study environment created for students
+            who want to improve habits, stay organized,
+            and achieve meaningful goals without feeling overwhelmed.
           </p>
+
+          <div style={styles.points}>
+
+            <div style={styles.point}>
+              <CheckCircle2 size={18} />
+              <span>Remove unnecessary distractions</span>
+            </div>
+
+            <div style={styles.point}>
+              <CheckCircle2 size={18} />
+              <span>Encourage deep focus</span>
+            </div>
+
+            <div style={styles.point}>
+              <CheckCircle2 size={18} />
+              <span>Simplify organization</span>
+            </div>
+
+            <div style={styles.point}>
+              <CheckCircle2 size={18} />
+              <span>Build consistent habits</span>
+            </div>
+
+          </div>
+
         </div>
 
-        <div style={styles.card} onMouseEnter={handleHover} onMouseLeave={handleLeave}>
-          <div style={styles.icon}><List size={18} /></div>
-          <h2 style={styles.cardTitle}>Task System</h2>
-          <p style={styles.cardText}>
-            Organize your study plan with simple, flexible task management.
-          </p>
-        </div>
+        {/* FINAL CTA */}
+        <div style={styles.bottom}>
 
-        <div style={styles.card} onMouseEnter={handleHover} onMouseLeave={handleLeave}>
-          <div style={styles.icon}><Timer size={18} /></div>
-          <h2 style={styles.cardTitle}>Pomodoro Focus</h2>
-          <p style={styles.cardText}>
-            Improve concentration using structured focus and break cycles.
-          </p>
-        </div>
+          <h2 style={styles.bottomTitle}>
+            Why FocusFlow Matters
+          </h2>
 
-        <div style={styles.card} onMouseEnter={handleHover} onMouseLeave={handleLeave}>
-          <div style={styles.icon}><BarChart3 size={18} /></div>
-          <h2 style={styles.cardTitle}>Analytics</h2>
-          <p style={styles.cardText}>
-            Understand your productivity patterns and improve over time.
+          <p style={styles.bottomText}>
+            Students today face distractions, pressure,
+            procrastination, and burnout more than ever before.
+            FocusFlow was created to solve these problems through
+            simplicity, structure, and smart productivity tools.
           </p>
+
+          <p style={styles.bottomText}>
+            The goal is simple:
+            help students stay focused, stay consistent,
+            and achieve their goals with confidence.
+          </p>
+
+          <Link to="/login">
+            <button style={styles.button}>
+              Get Started
+            </button>
+          </Link>
+
         </div>
 
       </div>
-
-    <div style={styles.bottom}>
-
-      <h2 style={styles.bottomTitle}>
-        Built for Students Who Want Results
-      </h2>
-
-      <p style={styles.bottomText}>
-        FocusFlow removes distractions and gives you a simple system
-        to organize your work, stay consistent, and actually finish your tasks.
-      </p>
-      <Link to="/login">
-        <button style={styles.button}>
-          Get Started
-        </button>
-      </Link>
-
-    </div>
-
     </div>
   );
 }
-
 
 const styles = {
   page: {
@@ -97,42 +268,60 @@ const styles = {
 
   hero: {
     textAlign: "center",
-    marginBottom: "70px",
+    marginBottom: "60px",
   },
 
   badge: {
     background: "#d1fae5",
     color: "#065f46",
-    padding: "8px 16px",
+    padding: "8px 18px",
     borderRadius: "999px",
     fontSize: "14px",
     fontWeight: "600",
   },
 
   title: {
-    fontSize: "48px",
+    fontSize: "54px",
     marginTop: "20px",
     color: "#111827",
+    lineHeight: "1.1",
   },
 
   subtitle: {
     fontSize: "18px",
     color: "#6b7280",
-    maxWidth: "650px",
+    maxWidth: "750px",
     margin: "20px auto 0",
-    lineHeight: "1.7",
+    lineHeight: "1.8",
+  },
+
+  introBox: {
+    maxWidth: "950px",
+    margin: "0 auto 70px",
+    padding: "40px",
+    borderRadius: "24px",
+    background: "white",
+    border: "1px solid #e5e7eb",
+    boxShadow: "0 10px 30px rgba(0,0,0,0.05)",
+  },
+
+  introText: {
+    color: "#4b5563",
+    lineHeight: "1.9",
+    marginBottom: "18px",
+    fontSize: "17px",
   },
 
   grid: {
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
     gap: "30px",
   },
 
   card: {
-    padding: "28px",
-    borderRadius: "22px",
-    background: "rgba(255,255,255,0.9)",
+    padding: "30px",
+    borderRadius: "24px",
+    background: "rgba(255,255,255,0.95)",
     border: "1px solid #e5e7eb",
     boxShadow: "0 10px 30px rgba(0,0,0,0.05)",
     transition: "all 0.3s ease",
@@ -140,61 +329,110 @@ const styles = {
   },
 
   icon: {
-    width: "50px",
-    height: "50px",
+    width: "52px",
+    height: "52px",
     borderRadius: "14px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    fontSize: "24px",
     background: "linear-gradient(135deg, #10b981, #34d399)",
     color: "white",
-    marginBottom: "18px",
+    marginBottom: "20px",
   },
 
   cardTitle: {
-    fontSize: "20px",
-    marginBottom: "10px",
+    fontSize: "24px",
     color: "#111827",
+    marginBottom: "15px",
   },
 
   cardText: {
     color: "#6b7280",
-    lineHeight: "1.6",
+    lineHeight: "1.8",
+    marginBottom: "18px",
+  },
+
+  list: {
+    paddingLeft: "18px",
+    color: "#374151",
+    lineHeight: "2",
+  },
+
+  whySection: {
+    marginTop: "90px",
+    padding: "60px",
+    borderRadius: "28px",
+    background: "#ecfdf5",
+    border: "1px solid #d1fae5",
+    textAlign: "center",
+  },
+
+  whyTitle: {
+    fontSize: "38px",
+    color: "#111827",
+  },
+
+  whyText: {
+    marginTop: "20px",
+    color: "#6b7280",
+    lineHeight: "1.9",
+    maxWidth: "850px",
+    marginLeft: "auto",
+    marginRight: "auto",
+  },
+
+  points: {
+    marginTop: "35px",
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+    gap: "20px",
+  },
+
+  point: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "10px",
+    padding: "18px",
+    borderRadius: "16px",
+    background: "white",
+    color: "#111827",
+    fontWeight: "500",
   },
 
   bottom: {
     marginTop: "90px",
     textAlign: "center",
     padding: "70px 40px",
-    borderRadius: "24px",
-    background: "linear-gradient(to right, #ecfdf5, #f0fdf4)",
+    borderRadius: "28px",
+    background: "linear-gradient(to right, #f0fdf4, #ecfdf5)",
     border: "1px solid #d1fae5",
   },
 
   bottomTitle: {
-    fontSize: "34px",
+    fontSize: "40px",
     color: "#111827",
   },
 
   bottomText: {
-    marginTop: "15px",
+    marginTop: "18px",
     color: "#6b7280",
-    maxWidth: "650px",
+    maxWidth: "800px",
     marginLeft: "auto",
     marginRight: "auto",
-    lineHeight: "1.7",
-    fontSize: "16px",
+    lineHeight: "1.9",
+    fontSize: "17px",
   },
 
   button: {
-    marginTop: "25px",
-    padding: "12px 26px",
-    borderRadius: "12px",
+    marginTop: "30px",
+    padding: "14px 30px",
+    borderRadius: "14px",
     border: "none",
     background: "#10b981",
     color: "white",
     fontWeight: "600",
+    fontSize: "16px",
     cursor: "pointer",
     transition: "0.3s",
   },

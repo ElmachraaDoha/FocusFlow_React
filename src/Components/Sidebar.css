@@ -51,5 +51,5 @@
 /* ACTIVE PAGE */
 .sidebar-nav a.active {
   background: rgba(19, 42, 19, 0.12);
-  color: rgba(19, 42, 19, 1);
+  color:  #10b981;
 }
