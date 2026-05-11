@@ -1,0 +1,49 @@
+.dashboard {
+  display: flex;
+  height: 100vh;
+  background: #f7f8f5;
+}
+
+.main {
+  flex: 1;
+  padding: 20px;
+}
+
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+
+.card {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 6px solid #6ea67c;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 22px;
+  font-weight: bold;
+
+  margin: 15px 0;
+}
