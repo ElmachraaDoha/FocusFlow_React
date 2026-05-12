@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 function AppLayout ()
 {
     return (
-        <>   {/*display elements horizontally(Flexbox)*/}
+        <>   
             <div style={styles.wrapper}>
                 <Sidebar/>
                 <main  style={styles.main} >
