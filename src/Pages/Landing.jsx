@@ -55,9 +55,11 @@ export default function Landing() {
 
       <div style={styles.videoContainer}>
 
-        <iframe > style={styles.video}
-                src={studyAnimation}
-        </iframe>
+         <img
+            src={studyAnimation}
+            alt="Study Animation"
+            style={styles.video}
+          />
 
       </div>
 
