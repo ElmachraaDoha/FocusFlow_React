@@ -117,7 +117,9 @@ function Tasks() {
                         {task.title}
                       </h4>
                     </div>
-
+                    <p>
+                      {task.description}
+                    </p>
                   </div>
 
                   <span className={`priority ${task.priority.toLowerCase()}`}>
