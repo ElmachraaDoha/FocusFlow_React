@@ -4,7 +4,7 @@ export const database = {
       id: "u1",
       name: "Naima Agouzoul",
       email: "naima@example.com",
-      password: "123", 
+      password: "123",
       preferences: { pomodoroDuration: 25, theme: "light" },
       tasks: [
         { id: "t1",  title: "Faire e devoir E-wallet", status: "todo", priority: "High" },
@@ -23,13 +23,39 @@ export const database = {
       email: "Nassima@example.com",
       password: "456",
       preferences: { pomodoroDuration: 50, theme: "dark" },
+
       tasks: [
-        { id: "t6",  title: "Exercices d'intégration", status: "todo", priority: "High" },
-        { id: "t7",  title: "TP Optique", status: "done", priority: "Low" },
-        { id: "t8",  title: "Reviser le chapitre 4", status: "focus", priority: "Medium" }
+        {
+          id: "t6",
+          title: "Lire le cours de développement web",
+          description: "Lire le cours en notant les points importants.",
+          status: "done",
+          priority: "High"
+        },
+
+        {
+          id: "t7",
+          title: "Faire les diagrammes de séquence",
+          description: "Décrire l’interaction entre les différents acteurs et le système pour chaque cas d’utilisation.",
+          status: "todo",
+          priority: "High"
+        },
+
+        {
+          id: "t8",
+          title: "Faire le TP Angular",
+          description: "Lire attentivement le TP et le réaliser étape par étape.",
+          status: "todo",
+          priority: "Medium"
+        }
       ],
+
       studySessions: [
-        { id: "sess2", durationMinutes: 60, date: "2026-05-08" }
+        {
+          id: "sess2",
+          durationMinutes: 60,
+          date: "2026-05-08"
+        }
       ],
     },
     {

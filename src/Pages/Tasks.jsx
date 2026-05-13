@@ -123,8 +123,10 @@ function Tasks() {
                       <h4 className={isDone ? "completed" : ""}>
                         {task.title}
                       </h4>
+                      <p>
+                      {task.description}
+                    </p>
                     </div>
-
                   </div>
 
                   <span className={`priority ${task.priority.toLowerCase()}`}>

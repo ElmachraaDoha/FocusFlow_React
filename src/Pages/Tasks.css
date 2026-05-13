@@ -18,8 +18,8 @@
   margin-bottom: 25px;
 }
 
-.tasks h2 {
-  color: #4ab47a;
+.tasks-header h2 {
+  color: black;
 }
 
 .add-task-btn {
