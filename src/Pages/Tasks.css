@@ -11,15 +11,15 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
-.tasks-header {
+.tasks {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 25px;
 }
 
-.tasks-header h2 {
-  color: #111827;
+.tasks h2 {
+  color: #4ab47a;
 }
 
 .add-task-btn {

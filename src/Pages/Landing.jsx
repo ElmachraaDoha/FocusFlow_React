@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import study3 from "../assets/study3.jfif";
-import studyAnimation from "../assets/studyAnimation.gif";
+import video from "../assets/video.mp4";
 
 
 export default function Landing() {
@@ -54,13 +54,15 @@ export default function Landing() {
       </div>
 
       <div style={styles.videoContainer}>
-
-         <img
-            src={studyAnimation}
-            alt="Study Animation"
-            style={styles.video}
-          />
-
+       <video
+          src={video}
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={styles.video}
+        >
+        </video>
       </div>
 
     </section>
@@ -71,8 +73,7 @@ const styles = {
   hero: {
     minHeight: "100vh",
     padding: "80px 10%",
-    background:
-      "linear-gradient(to bottom right, #f8fafc, #ecfdf5)",
+    background:"linear-gradient(to bottom right, #A7C957, #ecfdf5)",
   },
 
   topSection: {
@@ -131,7 +132,7 @@ const styles = {
     fontWeight: "600",
     cursor: "pointer",
     border: "none",
-    background: "#10b981",
+    background: "#6A994E ",
     color: "white",
   },
 

@@ -32,7 +32,7 @@
   text-decoration: none;
   color: #4b5563;
   font-weight: 500;
-
+  font-size: 20px;
   position: relative;
   padding-bottom: 5px;
 }
@@ -57,5 +57,5 @@
 
 /* active page */
 .header-nav a.active {
-  color: #10b981;
+  color: #BC4749;
 }

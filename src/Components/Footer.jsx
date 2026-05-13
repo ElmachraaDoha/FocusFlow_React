@@ -20,7 +20,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-copy">
-          © 2026 FocusFlow. All rights reserved.
+          &copy; 2026 FocusFlow. All rights reserved.
         </div>
         
       </div>

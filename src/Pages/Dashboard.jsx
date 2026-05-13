@@ -18,7 +18,6 @@ export default function Dashboard() {
 
   const recentSessions = currentUser.studySessions.slice(-2).reverse();
 
-  const getSubjectName = (id) => currentUser.subjects.find(s => s.id === id)?.name || "General";
 
   return (
     <div className="dashboard">
@@ -49,7 +48,7 @@ export default function Dashboard() {
           <div className="card">
             <h3>Recent Sessions</h3>
             {recentSessions.map(sess => (
-              <p key={sess.id}>{getSubjectName(sess.subjectId)} - {sess.durationMinutes} min</p>
+              <p key={sess.id} > Focus Session - {sess.durationMinutes} min</p>
             ))}
           </div>
 

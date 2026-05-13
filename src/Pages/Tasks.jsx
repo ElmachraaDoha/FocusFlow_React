@@ -3,20 +3,28 @@ import { database } from "../data/database";
 import "./Tasks.css";
 
 function Tasks() {
+
+  //user
   const currentUserId = localStorage.getItem("CurrentUserId") || "u1";
   const currentUser = database.users.find(u => u.id === currentUserId);
 
-  const [tasks, setTasks] = useState(currentUser?.tasks || []);
-  const [newTaskDescription, setNewTaskDescription] = useState("");
-  const [showModal, setShowModal] = useState(false);
 
+  //task list
+  const [tasks, setTasks] = useState(currentUser?.tasks || []);
+
+  //popup
+  const [newTaskTitle, setNewTaskTitle] = useState("");
+  const [newTaskDescription, setNewTaskDescription] = useState("");
+  const [selectedPriority, setSelectedPriority] = useState("High");
+  const [showPop, setShowPop] = useState(false);
+
+
+  //filters
   const [filterPriority, setFilterPriority] = useState("All");
   const [filterStatus, setFilterStatus] = useState("All");
 
-  const [newTaskTitle, setNewTaskTitle] = useState("");
-  const [selectedPriority, setSelectedPriority] = useState("High");
 
-  // FILTERED TASKS 
+  //filter tasks (return only tasks that follow the options the user wants )
   const filteredTasks = tasks.filter((task) => {
     const matchPriority =
       filterPriority === "All" || task.priority === filterPriority;
@@ -27,7 +35,7 @@ function Tasks() {
     return matchPriority && matchStatus;
   });
 
-  // TASK STATUS
+  //change task status  : toggle (something that have 2 options or 2 states)
   const toggleTask = (id) => {
     setTasks(tasks.map(task =>
       task.id === id
@@ -37,7 +45,7 @@ function Tasks() {
   };
 
   // ADD TASK 
-  const handleAddTask = (e) => {
+  const AddTask = (e) => {
     e.preventDefault();
 
     const newTask = {
@@ -48,12 +56,12 @@ function Tasks() {
       priority: selectedPriority
     };
 
-    setTasks([...tasks, newTask]);
+  setTasks([...tasks, newTask]);
 
-    setShowModal(false);
-    setNewTaskTitle("");
-    setNewTaskDescription("");
-    setSelectedPriority("High");
+  setShowPop(false);
+  setNewTaskTitle("");
+  setNewTaskDescription("");
+  setSelectedPriority("High");
 
   };
 
@@ -61,18 +69,17 @@ function Tasks() {
     <div className="tasks-page">
       <div className="tasks-container">
 
-        {/* HEADER */}
-        <div className="tasks-header">
+        {/* add task*/}
+        <div className="tasks">
           <h2>Tasks</h2>
           <button
             className="add-task-btn"
-            onClick={() => setShowModal(true)}
-          >
-            + Add Task
+            onClick={() => setShowPop(true)}
+          >+ Add Task
           </button>
         </div>
 
-        {/* FILTERS */}
+        {/* filters */}
         <div className="filters">
 
           <select
@@ -96,7 +103,7 @@ function Tasks() {
 
         </div>
 
-        {/* TASK LIST */}
+        {/* tasks list */}
         <div className="tasks-list">
           {filteredTasks.length > 0 ? (
             filteredTasks.map((task) => {
@@ -135,14 +142,14 @@ function Tasks() {
 
       </div>
 
-      {/* MODAL */}
-      {showModal && (
+      {/* popup */}
+      {showPop && (
         <div className="modal-overlay">
           <div className="modal-content">
 
             <h3>Add New Task</h3>
 
-            <form onSubmit={handleAddTask}>
+            <form onSubmit={AddTask}>
 
               <div className="form-group">
                 <label>Task Name</label>
@@ -178,7 +185,7 @@ function Tasks() {
               <div className="modal-actions">
                 <button
                   type="button"
-                  onClick={() => setShowModal(false)}
+                  onClick={() => setShowPop(false)}
                   className="cancel-btn"
                 >
                   Cancel
