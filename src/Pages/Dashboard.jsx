@@ -4,6 +4,7 @@ import "./Dashboard.css";
 
 function Dashboard() {
 
+  
   const navigate = useNavigate();
 
   //user
@@ -16,8 +17,11 @@ function Dashboard() {
     .filter(s => s.date === today)
     .reduce((sum, s) => sum + s.durationMinutes, 0);
 
+  //store new tasks
+  const savedTasks = JSON.parse(localStorage.getItem("allTasks")) || currentUser.tasks;
+
   //get in progress tasks 
-  const upcomingTasks = currentUser.tasks.filter(t => t.status !== "done").slice(0, 3);
+  const upcomingTasks = savedTasks.filter(t => t.status !== "done").slice(0, 3);
 
   //get reccet sessions( 2 most recent )
   const recentSessions = currentUser.studySessions.slice(-2).reverse();
@@ -45,7 +49,7 @@ function Dashboard() {
               </div>
 
               <div className="overview-box">
-                  <p> {currentUser.tasks.filter(t => t.status === "done").length} tasks done</p>
+                  <p> {savedTasks.filter(t => t.status === "done").length} tasks done</p>
               </div>
 
               <div className="overview-box">

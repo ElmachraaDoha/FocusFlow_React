@@ -53,3 +53,39 @@
   background: rgba(19, 42, 19, 0.12);
   color:  #6A994E;
 }
+
+
+/* logout button */
+.logout-btn {
+  margin-top: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 12px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #6A994E;
+  color: white;
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+/* hover */
+.logout-btn:hover {
+  background: #4f7d37;
+  transform: translateY(-2px);
+}
+
+/* click */
+.logout-btn:active {
+  transform: scale(0.98);
+}

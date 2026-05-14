@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation,useNavigate } from "react-router-dom";
 import { LayoutDashboard, List, Timer, TvMinimal} from "lucide-react";
 import FocusFlow from "../assets/FocusFlow.png";
 import "./Sidebar.css";
@@ -6,8 +6,20 @@ import "./Sidebar.css";
 
 
 export default function Sidebar() {
-  
+
+  //current location
   const location = useLocation();
+
+  //navigation
+  const navigate = useNavigate();
+
+  
+  //log out function 
+  const handleLogout = () => {
+    localStorage.removeItem("CurrentUserId");
+    navigate("/");
+  };
+
 
   return (
     <aside className="sidebar">
@@ -38,7 +50,13 @@ export default function Sidebar() {
           StudyRoom
         </Link>
 
+        <button className="logout-btn" onClick={handleLogout}>
+            Logout
+        </button>
+
+
       </nav>
+
 
     </aside>
   );

@@ -233,3 +233,22 @@
 .submit-btn:hover {
   background: #4e7a5a;
 }
+
+/* delete button */
+
+.delete-btn {
+  background: #dc2626;
+  color: white;
+
+  border: none;
+  padding: 8px 12px;
+
+  border-radius: 8px;
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.delete-btn:hover {
+  background: #b91c1c;
+}

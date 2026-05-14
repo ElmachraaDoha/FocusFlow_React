@@ -44,6 +44,7 @@ function Pomodoro() {
 
       //get the date (today)
       const today = new Date().toISOString().split("T")[0];
+      
       //create new session
       const newSession = {
         id: `sess${Date.now()}`,

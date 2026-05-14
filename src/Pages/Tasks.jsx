@@ -8,9 +8,11 @@ function Tasks() {
   const currentUserId = localStorage.getItem("CurrentUserId") || "u1";
   const currentUser = database.users.find(u => u.id === currentUserId);
 
-
   //task list
-  const [tasks, setTasks] = useState(currentUser?.tasks || []);
+  const [tasks, setTasks] = useState(() => {
+    const saved = localStorage.getItem("allTasks");
+    return saved ? JSON.parse(saved) : (currentUser?.tasks || []);
+  });
 
   //popup
   const [newTaskTitle, setNewTaskTitle] = useState("");
@@ -35,14 +37,17 @@ function Tasks() {
     return matchPriority && matchStatus;
   });
 
-  //change task status  : toggle (something that have 2 options or 2 states)
+  //change task status  : toggle (something that have 2 options or 2 states)(add it to localStorage)
   const toggleTask = (id) => {
-    setTasks(tasks.map(task =>
-      task.id === id
-        ? { ...task, status: task.status === "done" ? "todo" : "done" }
-        : task
-    ));
-  };
+   const newTasks = tasks.map(task =>
+    task.id === id
+      ? { ...task, status: task.status === "done" ? "todo" : "done" }
+      : task
+  );
+  setTasks(newTasks);
+    localStorage.setItem("allTask", JSON.stringify(newTasks));
+  };    
+
 
   // add task
   const AddTask = (e) => {
@@ -56,8 +61,11 @@ function Tasks() {
       priority: selectedPriority
     };
 
-  //add athe new task 
-  setTasks([...tasks, newTask]);
+  //add the new task (to localStorage )
+  const updatedTask=[...tasks, newTask];
+  setTasks(updatedTask);
+  localStorage.setItem("allTaks",JSON.stringify(updatedTask));
+  
 
   //reset the popup 
   setShowPop(false);
