@@ -274,7 +274,7 @@ const styles = {
 
   badge: {
     background: "#d1fae5",
-    color: "#065f46",
+    color: "#6A994E",
     padding: "8px 18px",
     borderRadius: "999px",
     fontSize: "14px",
@@ -336,7 +336,7 @@ const styles = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    background: "linear-gradient(135deg, #10b981, #34d399)",
+    background: "#6A994E",
     color: "white",
     marginBottom: "20px",
   },
@@ -430,7 +430,7 @@ const styles = {
     padding: "14px 30px",
     borderRadius: "14px",
     border: "none",
-    background: "#10b981",
+    background: "#6A994E",
     color: "white",
     fontWeight: "600",
     fontSize: "16px",
