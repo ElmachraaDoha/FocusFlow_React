@@ -3,8 +3,10 @@ import study3 from "../assets/study3.jfif";
 import video from "../assets/video.mp4";
 
 
-export default function Landing() {
+function Landing() {
+
   return (
+
     <section style={styles.hero}>
 
       <div style={styles.topSection}>
@@ -70,6 +72,7 @@ export default function Landing() {
 }
 
 const styles = {
+  
   hero: {
     minHeight: "100vh",
     padding: "80px 10%",
@@ -169,3 +172,7 @@ const styles = {
     objectFit: "cover",
   },
 };
+
+
+
+export default Landing;

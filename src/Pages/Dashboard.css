@@ -1,37 +1,38 @@
 .dashboard {
   display: flex;
   min-height: 100vh;
-  background: linear-gradient(180deg, #f7f8f5 0%, #eef2ec 100%);
+  background: linear-gradient(to bottom right, #A7C957, #ecfdf5);
   font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   color: #111827;
 }
 
-/* MAIN AREA */
+/* main area */
 .main {
   flex: 1;
   padding: 40px;
 }
 
-/* TOPBAR */
+/* topbar */
 .topbar {
   margin-bottom: 30px;
 }
 
 .topbar h2 {
   font-size: 30px;
-  font-weight: 800;
-  color: #687c77;
+  font-weight: 600;
+  font-style: normal;
+  color: #386641;
   letter-spacing: 0.5px;
 }
 
-/* GRID */
+/* grid */
 .grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 26px;
 }
 
-/* CARD BASE */
+/* card base */
 .card {
   background: rgba(255, 255, 255, 0.92);
   border-radius: 22px;
@@ -47,7 +48,7 @@
   box-shadow: 0 18px 40px rgba(0, 0, 0, 0.1);
 }
 
-/* TIMER CARD */
+/* timer card */
 .timer {
   display: flex;
   flex-direction: column;
@@ -56,7 +57,7 @@
   min-height: 340px;
 }
 
-/* TIMER CIRCLE */
+/* timer circle */
 .circle {
   width: 160px;
   height: 160px;
@@ -79,7 +80,7 @@
 }
 
 .timer-btn{
-  background: #10b981;
+  background:#386641;
   color: white;
   border: none;
   padding: 10px 16px;
@@ -88,21 +89,22 @@
   cursor: pointer;
 }
 
-/* CARD TITLE */
+/* card title */
 .card h3 {
   font-size: 20px;
   margin-bottom: 10px;
-  color: #2f614cc5;
+  color: #BC4749
+;
   font-weight: 700;
 }
 
-/* SUB TEXT (optional if you use p) */
+/* sub text */
 .card p {
   color: #1a2520;
   font-size: 14px;
 }
 
-/* RESPONSIVE */
+/* responsive */
 @media (max-width: 900px) {
   .grid {
     grid-template-columns: 1fr;
@@ -111,4 +113,31 @@
   .main {
     padding: 20px;
   }
+}
+
+/* today overview mini cards */
+.overview-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.overview-box {
+  background: #f7faf8;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 14px;
+  transition: all 0.2s ease;
+}
+
+.overview-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+}
+
+.overview-box p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
 }

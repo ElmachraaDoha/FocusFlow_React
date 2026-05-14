@@ -1,5 +1,7 @@
 
-export default function About() {
+
+function About() {
+
   return (
     <div style={styles.page}>
 
@@ -17,7 +19,7 @@ export default function About() {
 
       </div>
 
-      {/* MAIN CONTENT */}
+      {/* main content */}
       <div style={styles.contentBox}>
 
         <h2 style={styles.sectionTitle}>
@@ -48,7 +50,7 @@ export default function About() {
 
       </div>
 
-      {/* WHY SECTION */}
+      {/* why section */}
       <div style={styles.cardSection}>
 
         <div style={styles.card}>
@@ -86,7 +88,7 @@ export default function About() {
 
       </div>
 
-      {/* MISTAKES SECTION */}
+      {/* mistakes section */}
       <div style={styles.mission}>
 
         <h2 style={styles.missionTitle}>
@@ -108,7 +110,7 @@ export default function About() {
 
       </div>
 
-      {/* FINAL CTA */}
+      {/* final cta */}
       <div style={styles.finalSection}>
 
         <h2 style={styles.finalTitle}>
@@ -133,10 +135,11 @@ export default function About() {
   );
 }
 
+
 const styles = {
   page: {
     padding: "90px 10%",
-    background: "linear-gradient(to bottom, #f8fafc, #ffffff)",
+    background:"linear-gradient(to bottom right, #A7C957, #ecfdf5)",
     fontFamily: "system-ui",
   },
 
@@ -267,3 +270,6 @@ const styles = {
     fontSize: "17px",
   },
 };
+
+
+export default About;

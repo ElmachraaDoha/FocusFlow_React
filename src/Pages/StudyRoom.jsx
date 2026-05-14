@@ -1,10 +1,13 @@
+
 import "./StudyRoom.css";
+
 
 export default function StudyRoom() {
 
+  //importing videos 
   const videos = [
 
-    "https://www.youtube.com/embed/jfKfPfyJRdk",
+    "https://www.youtube.com/embed/jfKfPfyJRdk",//YouTube embed link
     "https://www.youtube.com/embed/yVk8SSqAqF4",
     "https://www.youtube.com/embed/ySmjheVxYc4",
     "https://www.youtube.com/embed/lTRiuFIWV54",

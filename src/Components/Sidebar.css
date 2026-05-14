@@ -11,21 +11,21 @@
   gap: 40px;
 }
 
-/* LOGO */
+/* logo */
 .sidebar-logo  img {
-  height: 120px;  
+  height: 180px;  
   width: auto;
   object-fit: contain;
 }
 
-/* NAV */
+/* nav */
 .sidebar-nav {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* LINKS */
+/* links */
 .sidebar-nav a {
   display: flex;
   align-items: center;
@@ -42,14 +42,14 @@
 }
 
 
-/* HOVER */
+/* hover */
 .sidebar-nav a:hover {
   background: rgba(19, 42, 19, 0.08);
   color: rgba(19, 42, 19, 1);
 }
 
-/* ACTIVE PAGE */
+/* active page */
 .sidebar-nav a.active {
   background: rgba(19, 42, 19, 0.12);
-  color:  #10b981;
+  color:  #6A994E;
 }

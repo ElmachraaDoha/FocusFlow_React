@@ -8,7 +8,7 @@ import {
 } from "lucide-react";
 
 
-export default function Features() {
+function Features() {
 
   const handleHover = (e) => {
     e.currentTarget.style.transform = "translateY(-10px)";
@@ -27,7 +27,7 @@ export default function Features() {
     <div style={styles.page}>
 
 
-      {/* HERO */}
+      {/* hero */}
       <div style={styles.hero}>
 
         <h1 style={styles.title}>
@@ -42,7 +42,7 @@ export default function Features() {
 
       </div>
 
-      {/* INTRO */}
+      {/* intro */}
       <div style={styles.introBox}>
 
         <p style={styles.introText}>
@@ -60,10 +60,10 @@ export default function Features() {
 
       </div>
 
-      {/* FEATURES */}
+      {/* features */}
       <div style={styles.grid}>
 
-          {/* DASHBOARD */}
+          {/* dashboard */}
           <div
             style={styles.card}
             onMouseEnter={handleHover}
@@ -94,7 +94,7 @@ export default function Features() {
 
           </div>
 
-          {/* TASKS */}
+          {/* tasks */}
           <div
             style={styles.card}
             onMouseEnter={handleHover}
@@ -125,7 +125,7 @@ export default function Features() {
 
           </div>
 
-          {/* POMODORO */}
+          {/* pomodoro */}
           <div
             style={styles.card}
             onMouseEnter={handleHover}
@@ -155,7 +155,7 @@ export default function Features() {
 
           </div>
 
-          {/* STUDY ROOM */}
+          {/* study room */}
           <div
             style={styles.card}
             onMouseEnter={handleHover}
@@ -185,8 +185,9 @@ export default function Features() {
             </ul>
 
           </div>
-
-        {/* WHY SECTION */}
+      </div>
+      
+        {/* why section */}
         <div style={styles.whySection}>
 
           <h2 style={styles.whyTitle}>
@@ -226,7 +227,7 @@ export default function Features() {
 
         </div>
 
-        {/* FINAL CTA */}
+        {/* final cta */}
         <div style={styles.bottom}>
 
           <h2 style={styles.bottomTitle}>
@@ -254,7 +255,7 @@ export default function Features() {
 
         </div>
 
-      </div>
+
     </div>
   );
 }
@@ -262,7 +263,7 @@ export default function Features() {
 const styles = {
   page: {
     padding: "90px 10%",
-    background: "linear-gradient(to bottom, #f8fafc, #ffffff)",
+    background:"linear-gradient(to bottom right, #A7C957, #ecfdf5)",
     fontFamily: "system-ui",
   },
 
@@ -437,3 +438,7 @@ const styles = {
     transition: "0.3s",
   },
 };
+
+
+
+export default  Features;

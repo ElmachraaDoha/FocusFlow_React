@@ -1,8 +1,9 @@
 import { Link, useLocation } from "react-router-dom";
-import FocusFlow from "../assets/FocusFlow.jpg";
+import FocusFlow from "../assets/FocusFlow.png";
 import "./Header.css";
 
 export default function Header() {
+  
   const location = useLocation();
 
   return (
@@ -28,6 +29,7 @@ export default function Header() {
       <Link to="/login" className={location.pathname === "/login" ? "active" : ""}>
         Login
       </Link>
+      
     </nav>
     </header>
   );

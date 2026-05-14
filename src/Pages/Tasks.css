@@ -1,6 +1,6 @@
 .tasks-page {
   min-height: 100vh;
-  background: #f7f8f5;
+  background: linear-gradient(to bottom right, #A7C957, #ecfdf5);
   padding: 30px;
 }
 
@@ -18,12 +18,13 @@
   margin-bottom: 25px;
 }
 
-.tasks-header h2 {
-  color: black;
+.tasks h2 {
+  color: #BC4749;
 }
 
+/*add button*/
 .add-task-btn {
-  background: #10b981;
+  background:#386641;
   color: white;
   border: none;
   padding: 12px 18px;
@@ -32,6 +33,7 @@
   font-weight: 600;
 }
 
+/*filters*/
 .filters {
   display: flex;
   gap: 15px;
@@ -45,6 +47,7 @@
   outline: none;
 }
 
+/*affichage des task */
 .tasks-list {
   display: flex;
   flex-direction: column;
@@ -76,6 +79,7 @@
   font-size: 14px;
 }
 
+/* completed task style */
 .completed {
   text-decoration: line-through;
   opacity: 0.6;
@@ -88,23 +92,26 @@
   font-weight: 600;
 }
 
+/* high priority task */
 .high {
   background: #fee2e2;
   color: #dc2626;
 }
 
+/* medium priority task */
 .medium {
   background: #fef3c7;
   color: #d97706;
 }
 
+/* low priority task */
 .low {
   background: #dcfce7;
   color: #16a34a;
 }
 
-/* Fond noir transparent derrière la popup */
-.modal-overlay {
+/* Transparent black background behind the popup */
+.Pop-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -117,8 +124,8 @@
   z-index: 1000;
 }
 
-/* POPUP CARD */
-.modal-content {
+/* popup card  */
+.Pop-content {
   background: #ffffff;
   padding: 28px;
   border-radius: 18px;
@@ -128,7 +135,7 @@
   animation: popIn 0.2s ease;
 }
 
-/* animation */
+/* animation : an  element that appears by scaling from 95% to 100% and fading in */
 @keyframes popIn {
   from {
     transform: scale(0.95);
@@ -140,14 +147,14 @@
   }
 }
 
-/* TITLE */
-.modal-content h3 {
+/* popup title */
+.Pop-content h3 {
   margin-bottom: 18px;
   color: #111827;
   font-size: 20px;
 }
 
-/* FORM */
+/* form */
 .form-group {
   margin-bottom: 14px;
 }
@@ -160,7 +167,7 @@
   font-size: 14px;
 }
 
-/* INPUTS */
+/* inputs */
 .form-group input,
 .form-group select,
 .form-group textarea {
@@ -173,7 +180,7 @@
   transition: all 0.2s ease;
 }
 
-/* FOCUS STATE (green theme) */
+/* green theme through out */
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
@@ -181,22 +188,22 @@
   box-shadow: 0 0 0 3px rgba(91, 143, 105, 0.15);
 }
 
-/* TEXTAREA */
+/* textarea */
 .form-group textarea {
   min-height: 90px;
   resize: none;
   font-family: inherit;
 }
 
-/* BUTTON AREA */
-.modal-actions {
+/* button area */
+.Pop-actions {
   display: flex;
   justify-content: flex-end;
   gap: 10px;
   margin-top: 18px;
 }
 
-/* CANCEL BUTTON */
+/* cancel button  */
 .cancel-btn {
   background: #f3f4f6;
   color: #374151;
@@ -211,7 +218,7 @@
   background: #e5e7eb;
 }
 
-/* SUBMIT BUTTON */
+/* submit button */
 .submit-btn {
   background: #10b981;
   color: white;

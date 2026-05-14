@@ -15,7 +15,7 @@
 
 /* logo */
 .header-logo img {
-  height: 80px;  
+  height: 150px;  
   width: auto;
   object-fit: contain;
 }
@@ -50,12 +50,12 @@
 
   width: 0%;
   height: 2px;
-  background: rgba(19, 42, 19, 1);
+  background:#386641;
 
   transition: width 0.3s ease;
 }
 
 /* active page */
 .header-nav a.active {
-  color: #BC4749;
+  color:#6A994E;
 }

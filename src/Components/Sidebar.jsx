@@ -1,11 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
 import { LayoutDashboard, List, Timer, TvMinimal} from "lucide-react";
-import FocusFlow from "../assets/FocusFlow.jpg";
+import FocusFlow from "../assets/FocusFlow.png";
 import "./Sidebar.css";
 
 
 
 export default function Sidebar() {
+  
   const location = useLocation();
 
   return (

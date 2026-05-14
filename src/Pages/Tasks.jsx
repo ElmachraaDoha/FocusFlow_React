@@ -44,7 +44,7 @@ function Tasks() {
     ));
   };
 
-  // ADD TASK 
+  // add task
   const AddTask = (e) => {
     e.preventDefault();
 
@@ -56,8 +56,10 @@ function Tasks() {
       priority: selectedPriority
     };
 
+  //add athe new task 
   setTasks([...tasks, newTask]);
 
+  //reset the popup 
   setShowPop(false);
   setNewTaskTitle("");
   setNewTaskDescription("");
@@ -146,8 +148,8 @@ function Tasks() {
 
       {/* popup */}
       {showPop && (
-        <div className="modal-overlay">
-          <div className="modal-content">
+        <div className="Pop-overlay">
+          <div className="Pop-content">
 
             <h3>Add New Task</h3>
 
@@ -184,7 +186,7 @@ function Tasks() {
                 </select>
               </div>
 
-              <div className="modal-actions">
+              <div className="Pop-actions">
                 <button
                   type="button"
                   onClick={() => setShowPop(false)}

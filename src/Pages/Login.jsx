@@ -4,18 +4,31 @@ import { database } from '../data/database';
 import "./Login.css"; 
 
 export default function LoginPage() {
+
+  //user infos
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  //error
   const [error, setError] = useState('');
+
+  //navigation
   const navigate = useNavigate();
 
+  //login logic
   const handleLogin = (e) => {
+
     e.preventDefault();
+
     const user = database.users.find( (u) => u.email === email && u.password === password)
+
     if (user) {
+
       localStorage.setItem("CurrentUserId", user.id);
       navigate('/app/dashboard');
+
     } else {
+      
       setError('Invalid email or password');
     }
   };

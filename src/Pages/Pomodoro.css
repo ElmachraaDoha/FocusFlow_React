@@ -3,7 +3,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(180deg, #f7f8f5 0%, #ffffff 100%);
+  background: linear-gradient(to bottom right, #A7C957, #ecfdf5);
   padding: 30px;
 }
 
@@ -17,27 +17,27 @@
   border: 1px solid #eef0f2;
 }
 
-/* TITLE */
+/* title */
 .pomodoro-card h2 {
   margin-bottom: 20px;
-  color: #1f2937;
+  color: #BC4749;
   font-size: 22px;
   font-weight: 700;
 }
 
-/* SESSION LABEL */
+/* session label  */
 .session-type {
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 20px;
-  color: #5b8f69;
+  color:#BC4749;
 }
 
 .session-type.break {
-  color: #3b82f6;
+  color: #BC4749;
 }
 
-/* TIMER CIRCLE */
+/* timer circle */
 .timer-circle {
   width: 240px;
   height: 240px;
@@ -53,11 +53,11 @@
 
 .timer-circle h1 {
   font-size: 52px;
-  color: #111827;
+  color: #000000;
   letter-spacing: 1px;
 }
 
-/* INPUT SETTINGS */
+/* input  settings */
 .settings {
   display: flex;
   flex-direction: column;
@@ -78,13 +78,13 @@
 
 .settings input:focus,
 .settings select:focus {
-  border-color: #5b8f69;
+  border-color: #6A994E ;
   box-shadow: 0 0 0 3px rgba(91, 143, 105, 0.15);
 }
 
-/* APPLY BUTTON */
+/* apply button */
 .settings button {
-  background: #10b981;
+  background: #386641;
   color: white;
   border: none;
   padding: 10px;
@@ -95,12 +95,11 @@
 }
 
 .settings button:hover {
-  background:#10b981;
+  background:#A7C957;
   transform: translateY(-1px);
 }
 
-/* TIMER BUTTONS */
-
+/* timer button */
 .timer-buttons {
   display: flex;
   justify-content: center;
@@ -120,9 +119,8 @@
   box-shadow: 0 4px 10px rgba(91, 143, 105, 0.2);
 }
 
-/* hover same for all */
 .timer-buttons button:hover {
-  background: #10b981;
+  background: #386641;
   color: white;
   transform: translateY(-2px);
 }

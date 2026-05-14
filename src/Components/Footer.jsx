@@ -1,9 +1,12 @@
-import FocusFlow from "../assets/FocusFlow.jpg";
+import { Link } from "react-router-dom";
+import FocusFlow from "../assets/FocusFlow.png";
 import "./Footer.css";
 
 
-export default function Footer() {
+function Footer() {
+
   return (
+
     <footer className="footer">
 
       <div className="footer-content">
@@ -13,10 +16,10 @@ export default function Footer() {
         </div>
 
         <div className="footer-links">
-          <a href="/">Home</a>
-          <a href="/features">Features</a>
-          <a href="/about">About</a>
-          <a href="/login">Login</a>
+          <Link to = "/">Home</Link>
+          <Link to = "/features">Features</Link>
+          <Link to = "/about">About</Link>
+          <Link to = "/login">Login</Link>
         </div>
 
         <div className="footer-copy">
@@ -28,3 +31,5 @@ export default function Footer() {
     </footer>
   );
 }
+
+export default  Footer;
